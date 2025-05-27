@@ -3,7 +3,7 @@ package mergo_test
 import (
 	"testing"
 
-	"dario.cat/mergo"
+	"github.com/monetr/mergo"
 )
 
 var testDataM = []struct {

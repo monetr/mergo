@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"dario.cat/mergo"
+	"github.com/monetr/mergo"
 )
 
 func TestIssue143(t *testing.T) {

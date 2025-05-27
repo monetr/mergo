@@ -1,7 +1,7 @@
 package mergo_test
 
 import (
-	"dario.cat/mergo"
+	"github.com/monetr/mergo"
 	"testing"
 )
 

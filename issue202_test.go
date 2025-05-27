@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"dario.cat/mergo"
+	"github.com/monetr/mergo"
 )
 
 func TestIssue202(t *testing.T) {

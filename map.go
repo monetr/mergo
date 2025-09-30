@@ -93,6 +93,16 @@ func deepMap(dst, src reflect.Value, visited map[uintptr]*visit, depth int, conf
 					srcPtr := srcElement.Addr()
 					srcElement = reflect.ValueOf(srcPtr)
 					srcKind = reflect.Ptr
+				} else if srcKind != reflect.Ptr && dstElement.Type().Elem().Kind() == srcKind {
+					// Otherwise, if the source is not a pointer (and it probably isnt)
+					// but the destination is a pointer, but a pointer to the same type of
+					// object, then we can do this in order to set that objects value.
+					// Craft a new pointer
+					value := reflect.New(srcElement.Type())
+					value.Elem().Set(srcElement)
+					// Store that pointer on the field.
+					dstElement.Set(value)
+					continue
 				}
 			}
 
